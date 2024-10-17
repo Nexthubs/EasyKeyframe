@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/i18n-config";
 import { NextIntlClientProvider, createTranslator } from "next-intl";
@@ -10,8 +9,6 @@ import { FooterComponent } from './components/Footer';
 import NextTopLoader from "nextjs-toploader";
 import PlausibleProvider from "next-plausible";
 import TawkChat from "@/components/TawkChat";
-import NativeBanner from "@/components/Monetag/NativeBanner";
-import InPagePush from "@/components/Monetag/InPagePush";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,10 +48,6 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <PlausibleProvider
-          domain="keyframeai.top"
-          customDomain="https://plausible.talkloop.top"
-        >
           <NextTopLoader />
           <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar></Navbar>
@@ -63,11 +56,8 @@ export default async function RootLayout({
           <FooterComponent></FooterComponent>
 
           </NextIntlClientProvider>
-          <GoogleAnalytics />
         </PlausibleProvider>
         <TawkChat />
-        <NativeBanner />
-        {/* <InPagePush /> */}
       </body>
     </html>
   );
