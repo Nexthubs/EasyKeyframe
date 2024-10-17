@@ -56,7 +56,6 @@ export default async function RootLayout({
           <FooterComponent></FooterComponent>
 
           </NextIntlClientProvider>
-        </PlausibleProvider>
         <TawkChat />
       </body>
     </html>
